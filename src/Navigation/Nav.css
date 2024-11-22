@@ -1,0 +1,35 @@
+/* General styles for the navigation bar */
+nav {
+  background-color: #f8f9fa; /* Light grayish background */
+  padding: 10px 20px; /* Adds padding around the navbar */
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  justify-content: center; /* Centers the nav items horizontally */
+  gap: 20px; /* Space between the links */
+}
+
+/* Styles for individual NavLinks */
+nav a {
+  text-decoration: none; /* Removes underline from links */
+  color: #007bff; /* Soft blue text color */
+  font-size: 18px; /* Adjust font size for readability */
+  font-weight: 500; /* Medium font weight */
+  padding: 8px 16px; /* Adds padding inside the links */
+  border-radius: 4px; /* Rounded edges for links */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for NavLinks */
+nav a:hover {
+  background-color: #007bff; /* Blue background on hover */
+  color: #ffffff; /* White text on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
+}
+
+/* Active link styles */
+nav a.active {
+  background-color: #0056b3; /* Slightly darker blue for active state */
+  color: #ffffff; /* White text */
+  font-weight: 600; /* Make the active link stand out */
+}
