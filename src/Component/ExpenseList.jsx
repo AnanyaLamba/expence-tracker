@@ -1,25 +1,6 @@
 import { useState } from "react";
 
-
-const ExpenseList = () => {
-  // Initialize state with entries from localStorage
-  const [expenses, setExpenses] = useState(() => {
-    //getting the data from the localstorage
-    const savedEntries = localStorage.getItem("entries");
-
-    //if we have data then parse it and return otherwise return an empty array
-    return savedEntries ? JSON.parse(savedEntries) : [];
-  });
-
-  const handleDelete = (idx) => {
-    // Update state by filtering out the deleted entry
-    const updatedEntries = expenses.filter((_, i) => i !== idx);
-    setExpenses(updatedEntries);
-
-    // Update localStorage
-    localStorage.setItem("entries", JSON.stringify(updatedEntries));
-  };
-
+const ExpenseList = ({ expenses, onDelete }) => {
   return (
     <>
       {expenses.length > 0 && (
@@ -42,7 +23,7 @@ const ExpenseList = () => {
                   <td>{entries.price}</td>
                   <td>{entries.date}</td>
                   <td>
-                    <button onClick={() => handleDelete(i)}>Delete</button>
+                    <button onClick={() => onDelete(i)}>Delete</button>
                   </td>
                 </tr>
               ))}

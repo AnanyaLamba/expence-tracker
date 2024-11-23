@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 import { useNavigate } from "react-router-dom";
+
 const ExpenseForm = () => {
   const [entries, setEntries] = useState(() => {
     //geting the data from the local storage
@@ -12,6 +13,9 @@ const ExpenseForm = () => {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [date, setDate] = useState("");
+  
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +26,7 @@ const ExpenseForm = () => {
       //we are saving the data in the local storage
       localStorage.setItem("entries", JSON.stringify(updateEntries));
       console.log("updateEntries:", updateEntries);
-      navigate('/view');
+      navigate("/view");
       return updateEntries;
     });
     //clearing the entries after submission
@@ -32,11 +36,6 @@ const ExpenseForm = () => {
     setDate("");
   };
 
-  //navigate to view page
-  const navigate = useNavigate();
-  
-  //function to navigate to view page on submission
-  
   return (
     <>
       <div>
@@ -100,7 +99,7 @@ const ExpenseForm = () => {
             />
           </label>
 
-          <button id="submit-btn" type="submit" >
+          <button id="submit-btn" type="submit">
             Add expence
           </button>
         </form>
